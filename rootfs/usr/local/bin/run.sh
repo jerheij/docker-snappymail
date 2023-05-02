@@ -9,10 +9,6 @@ sed -i "s/<MEMORY_LIMIT>/$MEMORY_LIMIT/g" /php.ini
 # Copy php.ini
 cat /php.ini > /etc/php/7.4/fpm/php.ini
 
-# Add folders
-# mkdir -p /rainloop/data/_data_/_default_/plugins/
-# mkdir -p /var/log/rainloop
-
 # Fix permissions
 usermod -u $UID www-data
 groupmod -g $GID www-data
