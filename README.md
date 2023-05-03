@@ -30,10 +30,10 @@ services:
       SERVER_NAME: webmail.somedomain.uk
       LOG_TO_STDOUT: 'true'
     volumes:
-      - /opt/docker/rainloop:/rainloop/data
+      - /opt/docker/snappymail:/var/lib/snappymail
       - /etc/pki/tls/certs/webmail.somedomain.uk.fullchain.pem:/etc/nginx/ssl/cert.pem:ro
       - /etc/pki/tls/private/webmail.somedomain.uk.key.pem:/etc/nginx/ssl/key.pem:ro
-      - /opt/docker/rainloop/ssl/dhparam.pem:/etc/nginx/ssl/dhparam.pem:ro
+      - /opt/docker/snappymail/ssl/dhparam.pem:/etc/nginx/ssl/dhparam.pem:ro
 ```
 
 ### SSL
@@ -47,7 +47,7 @@ For added security I have added a dhparam parameter in the nginx configuration s
 ### Volumes
 | Location in container | Content |
 | --- | --- |
-| /var/lib/snappymail | Directory containing the Rainloop data (configuration, plugins, cache) |
+| /var/lib/snappymail | Directory containing the Snappymail data (configuration, plugins, cache) |
 | /etc/nginx/ssl/cert.pem | SSL webserver certificate in PEM format |
 | /etc/nginx/ssl/key.pem | SSL webserver key in PEM format |
 | /etc/nginx/ssl/dhparam.pem | Nginx dhparam file ([link](https://nginx.org/en/docs/http/ngx_http_ssl_module.html)) |
@@ -65,7 +65,7 @@ For added security I have added a dhparam parameter in the nginx configuration s
 ### Changes
 I have introduced a "stable" tag instead of the "latest". The "latest" tag will be the git "master" branch while the "stable" tag will be the latest git tag.
 
-For changes in the different versions see my [github](https://github.com/jerheij/docker-rainloop) repo's commit messages.
+For changes in the different versions see my [github](https://github.com/jerheij/docker-snappymail) repo's commit messages.
 
 ### Author
 Jerheij
