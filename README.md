@@ -2,7 +2,7 @@
 
 ### Sources
 Base image: [ubuntu:focal](https://hub.docker.com/_/ubuntu/)  
-Main software: [Rainloop](https://snappymail.eu/)  
+Main software: [Snappymail](https://snappymail.eu/)  
 Packages: php-fpm, openssl, nginx, supervisor, snappymail
 
 
