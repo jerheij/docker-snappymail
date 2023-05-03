@@ -55,7 +55,7 @@ For added security I have added a dhparam parameter in the nginx configuration s
 ### Variables
 | Variable | Function | Optional | Default |
 | --- | --- | --- | --- |
-| `SERVER_NAME` | Hostname of the website to reach the webmail on | no | no |
+| `SERVER_NAME` | Hostname of the website to reach the webmail | no | no |
 | `UID`| UID of the web user, for mount and persistence compatibility | yes | 991 |
 | `GID`| GID of the web group, for mount and persistence compatibility| yes | 991 |
 | `UPLOAD_MAX_SIZE`| Attachment size limit | yes | 25M |
