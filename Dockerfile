@@ -12,6 +12,7 @@ VOLUME /var/lib/snappymail
 ENV UID=991 GID=991 UPLOAD_MAX_SIZE=25M LOG_TO_STDOUT=false MEMORY_LIMIT=128M
 
 RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install snappymail -y && \
     apt-get install -y \
     supervisor \
