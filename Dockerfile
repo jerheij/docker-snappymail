@@ -1,7 +1,8 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 RUN apt-get update -y && \
     apt-get install -y ca-certificates && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata && \
     apt-get clean all && \
     rm -rf /var/lib/apt/lists/*
 
@@ -29,4 +30,4 @@ EXPOSE 80 443
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
 
-CMD ["supervisord", "-c", "/conf/supervisor.conf"]]
+CMD ["/usr/bin/supervisord", "-c", "/conf/supervisor.conf"]

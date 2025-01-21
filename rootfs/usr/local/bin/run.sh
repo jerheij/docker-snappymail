@@ -7,7 +7,7 @@ sed -i "s/<SERVER_NAME>/$SERVER_NAME/g" /etc/nginx/sites-enabled/snappymail.conf
 sed -i "s/<MEMORY_LIMIT>/$MEMORY_LIMIT/g" /php.ini
 
 # Copy php.ini
-cat /php.ini > /etc/php/7.4/fpm/php.ini
+cat /php.ini > /etc/php/8.1/fpm/php.ini
 
 # Fix permissions
 usermod -u $UID www-data
