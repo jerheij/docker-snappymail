@@ -4,6 +4,14 @@
 sed -i "s/<UPLOAD_MAX_SIZE>/$UPLOAD_MAX_SIZE/g" /php.ini
 sed -i "s/<UPLOAD_MAX_SIZE>/$UPLOAD_MAX_SIZE/g" /etc/nginx/sites-enabled/snappymail.conf
 sed -i "s/<SERVER_NAME>/$SERVER_NAME/g" /etc/nginx/sites-enabled/snappymail.conf
+if [ ! -z $CLIENT_CERT ]
+then
+  sed -i "s%<CLIENT_CERT>%${CLIENT_CERT}%g" /etc/nginx/sites-enabled/snappymail.conf
+elif [ -z $CLIENT_CERT ]
+then
+  sed -i "/ssl_verify_client/d" /etc/nginx/sites-enabled/snappymail.conf
+  sed -i "/ssl_client_certificate/d" /etc/nginx/sites-enabled/snappymail.conf
+fi
 sed -i "s/<MEMORY_LIMIT>/$MEMORY_LIMIT/g" /php.ini
 
 # Copy php.ini
