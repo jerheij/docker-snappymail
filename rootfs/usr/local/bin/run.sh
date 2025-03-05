@@ -6,7 +6,7 @@ sed -i "s/<UPLOAD_MAX_SIZE>/$UPLOAD_MAX_SIZE/g" /etc/nginx/sites-enabled/snappym
 sed -i "s/<SERVER_NAME>/$SERVER_NAME/g" /etc/nginx/sites-enabled/snappymail.conf
 if [ ! -z $CLIENT_CERT ]
 then
-  sed -i "s/<CLIENT_CERT>/$CLIENT_CERT/g" /etc/nginx/sites-enabled/snappymail.conf
+  sed -i "s/<CLIENT_CERT>/"$CLIENT_CERT"/g" /etc/nginx/sites-enabled/snappymail.conf
 elif [ -z $CLIENT_CERT ]
 then
   sed -i "/ssl_verify_client/d" /etc/nginx/sites-enabled/snappymail.conf
