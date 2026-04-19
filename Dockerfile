@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:jammy
 
 RUN apt-get update -y && \
     apt-get install -y ca-certificates && \
