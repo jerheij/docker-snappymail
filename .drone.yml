@@ -49,16 +49,6 @@ steps:
     branch:
       - stable
 
-- name: Webhook infra email
-  image: jerheij/drone-shell
-  settings:
-    cmd:
-      from_secret: EMAIL_INFRA
-  when:
-    status: [ success ]
-    branch:
-      - stable
-
 - name: matrix_notification_success
   image: spotlightkid/drone-matrixchat-notify
   settings:
