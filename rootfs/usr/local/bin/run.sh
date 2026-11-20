@@ -15,7 +15,7 @@ fi
 sed -i "s/<MEMORY_LIMIT>/$MEMORY_LIMIT/g" /php.ini
 
 # Copy php.ini
-cat /php.ini > /etc/php/8.1/fpm/php.ini
+cat /php.ini > /etc/php/8.3/fpm/php.ini
 
 # Fix permissions
 usermod -u $UID www-data

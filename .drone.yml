@@ -49,6 +49,16 @@ steps:
     branch:
       - stable
 
+- name: Webhook infra email
+  image: jerheij/drone-shell
+  settings:
+    cmd:
+      from_secret: EMAIL_INFRA
+  when:
+    status: [ success ]
+    branch:
+      - stable
+
 - name: matrix_notification_success
   image: spotlightkid/drone-matrixchat-notify
   settings:
@@ -65,7 +75,6 @@ steps:
     devicename: 'Drone CI'
     template: |
       ✅ Drone Build ${DRONE_REPO_NAME}/${DRONE_COMMIT_BRANCH} ${DRONE_TAG} ${DRONE_BUILD_STATUS}
-      ${DRONE_BUILD_LINK}
   when:
     status: [ success, changed ]
 
@@ -85,6 +94,5 @@ steps:
     devicename: 'Drone CI'
     template: |
       🔴 Drone Build ${DRONE_REPO_NAME}/${DRONE_COMMIT_BRANCH} ${DRONE_TAG} ${DRONE_BUILD_STATUS}
-      ${DRONE_BUILD_LINK}
   when:
     status: [ failure ]
